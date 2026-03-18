@@ -1,4 +1,4 @@
-package exercicio1;
+package exercicio01;
 
 public class MonitorEnergia {
     double[] consumo;
@@ -9,7 +9,7 @@ public class MonitorEnergia {
     }
 
     public void registrar(double valor) {
-        if(indice < consumo.length){
+        if(indice < consumo.length) {
             consumo[indice] = valor;
             indice++;
         }
@@ -17,18 +17,19 @@ public class MonitorEnergia {
 
     public double calcularMedia() {
         double media = 0;
-        for(double valor : consumo){
+
+        for(double valor : consumo) {
             media += valor;
         }
-        return media / consumo.length;
-        //codigo pode ser substituido chamando o outro metodo de mesmo nome. evita repetir codigo
+        return media / indice;
     }
 
     public double calcularMedia(int inicio, int fim) {
         double media = 0;
-        for(int i = inicio; i <= fim; i++) {
+        for(int i = inicio - 1; i < fim; i++) {
             media += consumo[i];
         }
-        return media / (fim - inicio);
+        return media / (fim - inicio + 1);
     }
+
 }
